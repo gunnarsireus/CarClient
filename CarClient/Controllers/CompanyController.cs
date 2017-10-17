@@ -82,7 +82,7 @@ namespace CarClient.Controllers
 			var oldCompany = await Utils.Get<Company>("api/Company/" + id);
 
 			oldCompany.Name = company.Name;
-			oldCompany.Name = company.Name;
+			oldCompany.Address = company.Address;
 			await Utils.Put<Company>("api/Company/" + oldCompany.Id, oldCompany);
 
 			return RedirectToAction(nameof(Index));
