@@ -82,7 +82,7 @@ Enhetstester
 I projektet CarClient.Tests och CarAPI.Test finns tester som testar Controllers. 
 Testerna är implementerade med xUnit och Moq. Testerna körs genom att högerklicka i koden 
 och välja ”Run tests”. Observera att CarAPI måste vara igång för att testerna skall 
-kunna köras felfritt. Tetsrena är inte alls fullständiga, mer att betrakta som skisser på hur man skulle kunna utforma bra enhtestester.
+kunna köras felfritt. Testerna är inte alls fullständiga, mer att betrakta som skisser på hur man skulle kunna utforma bra enhetstester.
 
 Köra programmet
 Hämta koden från github, öppna med Visual Studio 2017. När koden är öppnad tryck F5 för att 
