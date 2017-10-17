@@ -1,5 +1,5 @@
-# CarAPI
-cenario:
+# CarClient
+Scenario:
 Our company has a number of connected vehicles that belongs to a number of customers.
 We have a need to be able to view the status of the connection among these vehicles on a monitoring display.
 
