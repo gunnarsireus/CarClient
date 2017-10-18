@@ -27,7 +27,13 @@ namespace CarClient.Controllers
 			}
 
 			var allCars = await Utils.Get<List<Car>>("api/Car");
-			foreach (var company in companies)
+            foreach (var car in allCars)
+            {
+                car.Disabled = false; //Enable updates of Online/Offline
+                await Utils.Put<Car>("api/Car/" + car.Id, car);
+            }
+
+            foreach (var company in companies)
 			{
 				var companyCars = allCars.Where(o => o.CompanyId == company.Id).ToList();
 				company.Cars = companyCars;

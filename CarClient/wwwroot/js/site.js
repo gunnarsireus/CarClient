@@ -26,7 +26,7 @@ function timerJob() {
                 return;
             }
 
-            const selectedItem = Math.trunc(Math.random() * cars.length);
+            const selectedItem = Math.floor(Math.random() * cars.length);
             let selectedCar = cars[selectedItem];
             if (selectedCar.disabled === true) {
                 window.setTimeout(timerJob, oneSecond);
