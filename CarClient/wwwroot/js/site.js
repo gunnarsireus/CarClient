@@ -1,6 +1,8 @@
 ﻿// Write your JavaScript code.
 $(document).ready(function () {
     timerJob();
+    radiobtn = document.getElementById("Alla");
+    radiobtn.checked = true;
 });
 
 $(".uppercase").keyup(function () {
@@ -65,5 +67,25 @@ function timerJob() {
             }
         }
     });
+    var table = document.getElementById("cars");
+    let selection = 0;
+    let radiobtn = document.getElementById("Alla");
+    if (radiobtn.checked === false) {
+        radiobtn = document.getElementById("Online");
+        if (radiobtn.checked === true) {
+            selection = 1
+        }
+        else
+        {
+            selection = 2
+        }
+    }
+    if (selection === 1) {   //Show Online only
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            $(selector).text("Offline");
+            $(selector).addClass("alert-danger");
+
+        }
+    }
     window.setTimeout(timerJob, tenSeconds);
 }
