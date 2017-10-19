@@ -1,8 +1,6 @@
 ﻿// Write your JavaScript code.
 $(document).ready(function () {
     timerJob();
-    radiobtn = document.getElementById("Alla");
-    radiobtn.checked = true;
 });
 
 $(".uppercase").keyup(function () {
@@ -65,8 +63,12 @@ function timerJob() {
                 $(selector3).addClass("alert-danger");
                 console.log(selectedCar.regNr + " är Offline!");
             }
+            doFiltering();
         }
     });
+    window.setTimeout(timerJob, tenSeconds);
+}
+function doFiltering() {
     var table = document.getElementById("cars");
     let selection = 0;
     let radiobtn = document.getElementById("Alla");
@@ -75,17 +77,23 @@ function timerJob() {
         if (radiobtn.checked === true) {
             selection = 1
         }
-        else
-        {
+        else {
             selection = 2
         }
     }
-    if (selection === 1) {   //Show Online only
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            $(selector).text("Offline");
-            $(selector).addClass("alert-danger");
 
+    var table = $('#cars > tbody');
+    $('tr', table).each(function () {
+        $(this).removeClass("hidden");
+        let td = $('td:eq(2)', $(this)).html();
+        if (td !== undefined) {
+            td = td.trim();
         }
-    }
-    window.setTimeout(timerJob, tenSeconds);
+        if (td === "Offline" && selection === 1) {
+            $(this).addClass("hidden");  //Show only Online
+        }
+        if (td === "Online" && selection === 2) {
+            $(this).addClass("hidden"); //Show only Offline
+        }
+    });
 }
