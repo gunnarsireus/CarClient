@@ -14,26 +14,25 @@
         </tr>
     </table>
     <script type="text/javascript">
-        let carArr = [];
         const oneSecond = 1000;
         (function () {
-            const length = getParameterByName('length');
-            for (var i = 0; i < length; i++) {
-                let car = {
-                    regNr: getParameterByName('regNr' + i),
-                    online: getParameterByName('online' + i)
-                };
-                carArr.push(car);
-            }
-            createTable(carArr);
-            window.setTimeout(timerJob1, oneSecond);
+            //const length = getParameterByName('length');
+            //for (var i = 0; i < length; i++) {
+            //    let car = {
+            //        regNr: getParameterByName('regNr' + i),
+            //        online: getParameterByName('online' + i)
+            //    };
+            //    carArr.push(car);
+            //}
+            //createTable(carArr);
+            window.setTimeout(getCars, oneSecond);
         })();
 
 
         function createTable(cars) {
             var table = document.getElementById("myTable");
             var rowCount = table.rows.length;
-            for (var x = rowCount - 1; x > 1; x--) {
+            for (var x = rowCount - 1; x > 0; x--) {
                 table.deleteRow(x);
             }
 
@@ -55,26 +54,25 @@
             }
         }
 
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
+        //function getParameterByName(name, url) {
+        //    if (!url) url = window.location.href;
+        //    name = name.replace(/[\[\]]/g, "\\$&");
+        //    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        //        results = regex.exec(url);
+        //    if (!results) return null;
+        //    if (!results[2]) return '';
+        //    return decodeURIComponent(results[2].replace(/\+/g, " "));
+        //}
 
 
-        function timerJob1() {
+        function getCars() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
                     if (xmlhttp.status === 200) {
-                        console.log('Tick');
-                        carArr = JSON.parse(xmlhttp.responseText);
-                        createTable(carArr);
-                        window.setTimeout(timerJob1, oneSecond);
+                        let cars = JSON.parse(xmlhttp.responseText);
+                        createTable(cars);
+                        window.setTimeout(getCars, oneSecond);
                     }
                     else if (xmlhttp.status === 400) {
                         alert('There was an error 400');

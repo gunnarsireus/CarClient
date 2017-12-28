@@ -1,9 +1,9 @@
 ﻿// Write your JavaScript code.
 $(document).ready(function () {
     timerJob();
+    console.log('documentReady');
 });
 
-let carArr = [];
 $(".uppercase").keyup(function () {
     var text = $(this).val();
     $(this).val(text.toUpperCase());
@@ -21,17 +21,14 @@ function timerJob() {
         type: "GET",
         dataType: "json",
         success: function (cars) {
-            carArr = cars;
             if (cars.length === 0) {
-                window.setTimeout(timerJob, oneSecond);
+                setTimeout(timerJob, oneSecond);
                 console.log("Inga bilar hittade!");
                 return;
             }
-
             const selectedItem = Math.floor(Math.random() * cars.length);
             let selectedCar = cars[selectedItem];
             if (selectedCar.disabled === true) {
-                window.setTimeout(timerJob, oneSecond);
                 console.log(selectedCar.regNr + " är blockerad för uppdatering av Online/Offline!");
                 return;
             }
@@ -70,7 +67,7 @@ function timerJob() {
             }
         }
     });
-    window.setTimeout(timerJob, tenSeconds);
+    setTimeout(timerJob, tenSeconds);
 }
 
 function doFiltering() {
@@ -79,10 +76,10 @@ function doFiltering() {
     if (radiobtn.checked === false) {
         radiobtn = document.getElementById("Online");
         if (radiobtn.checked === true) {
-            selection = 1
+            selection = 1;
         }
         else {
-            selection = 2
+            selection = 2;
         }
     }
 
@@ -103,15 +100,5 @@ function doFiltering() {
 };
 
 function showModals() {
-    if (carArr.length === 0) {
-        console.log("Inga bilar hittade!");
-        return;
-    }
-
-    let params = "";
-    for (let i = 0; i < carArr.length; i++) {
-        params += "&id" + i + "=" + carArr[i].id + "&regNr" + i + "=" + carArr[i].regNr + "&online" + i + "=" + carArr[i].online;
-    }
-    window.open("./html/Car.html?length=" + carArr.length + params, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=500,height=400");
-
+    window.open("./html/Car.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=500,height=400");
 }
