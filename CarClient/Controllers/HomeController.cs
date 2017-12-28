@@ -5,9 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CarClient.Models;
-using CarClient.Models.CarViewModel;
 using CarClient.Models.HomeViewModel;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarClient.Controllers
 {

@@ -72,9 +72,12 @@
     </div>
     <div class="col-lg-2">
         <h3>Visa fordon med status:</h3>
-        <input onclick="doFiltering()" checked="checked" id="Alla" type="radio" name="status" value="Alla">Alla<br>
+        <input onclick="doFiltering()"  id="Alla"  type="radio" name="status" value="Alla"  checked="checked">Alla<br>
         <input onclick="doFiltering()" id="Online" type="radio" name="status" value="Online">Online<br>
-        <input onclick="doFiltering()" id="Offline" type="radio" name="status" value="Offline">Offline
+        <input onclick="doFiltering()" id="Offline" type="radio" name="status" value="Offline">Offline<br>
+        <br>
+        <br>
+        <button onclick="showModals()">Visa meddelandek&ouml;er</button>
     </div>
     <div class="col-lg-4">
         <p class="alert-info">H&auml;r visas alla fordon f&ouml;r alla f&ouml;retag. Status (Offline/Online)  &auml;ndras slumpm&auml;ssigt ungef&auml;r var 10e sekund och kan ocks&aring;  &auml;ndras manuellt av en inloggad anv&auml;ndare. Du m&aring;ste registera ett konto och logga in f&ouml;r att kunna uppdatera f&ouml;retag och f&ouml;retagsfordon.  F&ouml;r att se och uppdatera f&ouml;retag och f&ouml;retagsfordon, logga in och v&auml;lj respektive menyalternativ.  Notera hur status &auml;ndras slumpm&auml;ssigt ungef&auml;r var 10e sekund.<br/><br/>Om du trycker F12 och v&auml;ljer "Console" kan du se n&auml;r status  &auml;ndras f&ouml;r respektive bil med hj&auml;lp av Javascript i browsern.</p>

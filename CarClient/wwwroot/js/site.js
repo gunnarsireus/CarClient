@@ -3,6 +3,7 @@ $(document).ready(function () {
     timerJob();
 });
 
+let carArr = [];
 $(".uppercase").keyup(function () {
     var text = $(this).val();
     $(this).val(text.toUpperCase());
@@ -20,6 +21,7 @@ function timerJob() {
         type: "GET",
         dataType: "json",
         success: function (cars) {
+            carArr = cars;
             if (cars.length === 0) {
                 window.setTimeout(timerJob, oneSecond);
                 console.log("Inga bilar hittade!");
@@ -98,4 +100,18 @@ function doFiltering() {
             $(this).addClass("hidden"); //Show only Offline
         }
     });
+};
+
+function showModals() {
+    if (carArr.length === 0) {
+        console.log("Inga bilar hittade!");
+        return;
+    }
+
+    let params = "";
+    for (let i = 0; i < carArr.length; i++) {
+        params += "&id" + i + "=" + carArr[i].id + "&regNr" + i + "=" + carArr[i].regNr + "&online" + i + "=" + carArr[i].online;
+    }
+    window.open("./html/Car.html?length=" + carArr.length + params, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=500,height=400");
+
 }
