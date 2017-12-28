@@ -63,13 +63,15 @@ function timerJob() {
                 $(selector3).addClass("alert-danger");
                 console.log(selectedCar.regNr + " är Offline!");
             }
-            doFiltering();
+            if (document.getElementById("Alla") !== null) {
+                doFiltering();
+            }
         }
     });
     window.setTimeout(timerJob, tenSeconds);
 }
+
 function doFiltering() {
-    var table = document.getElementById("cars");
     let selection = 0;
     let radiobtn = document.getElementById("Alla");
     if (radiobtn.checked === false) {

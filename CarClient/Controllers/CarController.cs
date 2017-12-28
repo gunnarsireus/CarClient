@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CarClient.Models;
 using CarClient.Models.CarViewModel;
-using CarClient.Models.HomeViewModel;
 
 namespace CarClient.Controllers
 {
