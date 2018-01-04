@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -23,9 +25,9 @@ namespace CarClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite("Data Source=AspNet.db"));
+                options.UseSqlite("Data Source="+ Configuration["ConnectionStrings:SqLiteConnection"] + "//AspNet.db"));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+			services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -33,6 +35,7 @@ namespace CarClient
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,4 +64,8 @@ namespace CarClient
             });
         }
     }
+	public class AppSettings
+	{
+		public string SqLiteConnection { get; set; }
+	}
 }
