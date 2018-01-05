@@ -40,10 +40,10 @@ namespace CarClient
 		public async Task ConfigureServicesAsync(IServiceCollection services)
 		{
 			var aspNetDbLocation = new AspNetDbLocation();
-			var aspNetDbDirectory = await aspNetDbLocation.GetAspNetDbDirectoryAsync() + "\\App_Data\\AspNet.db";
+			var aspNetDb = await aspNetDbLocation.GetAspNetDbAsync();
 
 			services.AddDbContext<ApplicationDbContext>(options =>
-				options.UseSqlite("Data Source=" + aspNetDbDirectory));
+				options.UseSqlite("Data Source=" + aspNetDb));
 
 		}
 
