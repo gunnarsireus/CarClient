@@ -107,8 +107,8 @@ namespace CarClient.Controllers
 
 		private async Task<bool> CompanyExists(Guid id)
 		{
-			var companys = await Utils.Get<List<Company>>("api/Company");
-			return companys.Any(e => e.Id == id);
+			var companies = await Utils.Get<List<Company>>("api/Company");
+			return companies.Any(e => e.Id == id);
 		}
 	}
 }
