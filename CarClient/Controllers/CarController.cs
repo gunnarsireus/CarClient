@@ -136,8 +136,9 @@ namespace CarClient.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> DeleteConfirmed(Guid id)
 		{
+			var car = await Utils.Get<Car>("api/Car/" + id);
 			await Utils.Delete<Car>("api/Car/" + id);
-			return RedirectToAction(nameof(Index));
+			return RedirectToAction("Index", new { id = car.CompanyId });
 		}
 
 		public async Task<bool> RegNrAvailable(string regNr)
