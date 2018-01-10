@@ -1,10 +1,10 @@
 @model CarClient.Models.Car
 
 @{
-    ViewData["Title"] = Html.Raw("&#196;ndra");
+    ViewData["Title"] = Html.Raw("Edit");
 }
 
-<h2>&#196;ndra bil f&#246;r @ViewBag.CompanyName</h2>
+<h2>Edit bil f&#246;r @ViewBag.CompanyName</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,7 +41,7 @@
 
 <div>
     <p>
-        <a asp-action="Index" asp-route-id="@Model.CompanyId">Tillbaka till listan</a>
+        <a asp-action="Index" asp-route-id="@Model.CompanyId">Back to list</a>
     </p>
 </div>
 

@@ -62,7 +62,7 @@ function timerJob() {
                 $(selector3).addClass("alert-danger");
                 console.log(selectedCar.regNr + " är Offline!");
             }
-            if (document.getElementById("Alla") !== null) {
+            if (document.getElementById("All") !== null) {
                 doFiltering();
             }
         }
@@ -72,7 +72,7 @@ function timerJob() {
 
 function doFiltering() {
     let selection = 0;
-    let radiobtn = document.getElementById("Alla");
+    let radiobtn = document.getElementById("All");
     if (radiobtn.checked === false) {
         radiobtn = document.getElementById("Online");
         if (radiobtn.checked === true) {

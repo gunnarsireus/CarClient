@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
 namespace CarClient.Models
 {
@@ -12,16 +9,16 @@ namespace CarClient.Models
 	{
 		public Company()
 		{
-			CreationTime = DateTime.Now.ToString(new CultureInfo("se-SE"));
+			CreationTime = DateTime.Now.ToString(new CultureInfo("en-US"));
 		}
 		public Guid Id { get; set; }
 
-		[Display(Name = "Skapat datum")]
+		[Display(Name = "Created date")]
 		public string CreationTime { get; set; }
-		[Display(Name = "Namn")]
+		[Display(Name = "Name")]
 		public string Name { get; set; }
 
-		[Display(Name = "Adress")]
+		[Display(Name = "Address")]
 		public string Address { get; set; }
 
 		public ICollection<Car> Cars { get; set; }
