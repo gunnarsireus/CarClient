@@ -1,7 +1,7 @@
 @using System.Security.Principal
 @model CarClient.Models.CarViewModel.CarListViewModel
 @{
-    ViewData["Title"] = Html.Raw("Company Vehicles");
+    ViewData["Title"] = "Company Vehicles";
 }
 <h2>Company Vehicles</h2>
 
@@ -27,7 +27,7 @@
     }
     else
     {
-        <p>Company saknas</p>
+        <p>Companies missing</p>
     }
 }
 <div class="row">
@@ -79,8 +79,8 @@
         </table>
     </div>
     <div class="col-lg-4">
-        <p class="alert-info">Here are all vehicles shown for a particular company. In the drop-down menu, you can choose another company and see its vehicles. Note how the status changes randomly every 10 seconds.
-
+        <p class="alert-info">All vehicles for a particular company are shown here. In the drop-down menu, you can choose another company and see its vehicles. Note how the status changes randomly every 10 seconds.
+            <br/><br/>
             If you press F12 and select "Console" you can see when the status changes for each car using Javascript in the browser<br /><br />If you press F12 and select "Console" you can see when the status changes for each car using Javascript in the browser.</p>
     </div>
 </div>
