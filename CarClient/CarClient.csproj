@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\**" />
-    <Content Remove="Data\Migrations\**" />
-    <EmbeddedResource Remove="Data\Migrations\**" />
-    <None Remove="Data\Migrations\**" />
+    <Compile Remove="DAL\Migrations\**" />
+    <Content Remove="DAL\Migrations\**" />
+    <EmbeddedResource Remove="DAL\Migrations\**" />
+    <None Remove="DAL\Migrations\**" />
   </ItemGroup>
 
 
