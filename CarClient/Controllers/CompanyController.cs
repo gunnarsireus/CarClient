@@ -11,10 +11,11 @@ namespace CarClient.Controllers
 {
 	public class CompanyController : Controller
 	{
-		private readonly UserManager<ApplicationUser> _userManager;
-		public CompanyController(UserManager<ApplicationUser> userManager)
+		private readonly SignInManager<ApplicationUser> _signInManager;
+
+		public CompanyController(SignInManager<ApplicationUser> signInManager)
 		{
-			_userManager = userManager;
+			_signInManager = signInManager;
 		}
 
 
@@ -22,6 +23,7 @@ namespace CarClient.Controllers
 
 		public async Task<IActionResult> Index()
 		{
+			if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Index", "Home");
 			var companies = await Utils.Get<List<Company>>("api/Company");
 
 			foreach (var company in companies)

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using CarClient.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using CarClient.Models;
 
-namespace CarClient.Data
+namespace CarClient.DAL
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
