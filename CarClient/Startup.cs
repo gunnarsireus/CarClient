@@ -58,8 +58,8 @@ namespace CarClient
 			if (aspNetDb != null)
 			{
 				services.AddDbContext<ApplicationDbContext>(options =>
-					options.UseSqlite("Data Source=" + aspNetDb));
-			}
+                             options.UseSqlServer(aspNetDb));
+            }
 			else
 			{
 				services.AddDbContext<ApplicationDbContext>(options =>
